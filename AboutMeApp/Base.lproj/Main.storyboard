@@ -30,7 +30,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug1-LR-bpy">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug1-LR-bpy">
                                         <rect key="frame" x="0.0" y="96.666666666666686" width="361" height="40.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Log In"/>
@@ -49,17 +49,17 @@
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="forgotUserNameButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="uZc-dE-URU"/>
+                                                    <action selector="forgotButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cHW-y3-mJS"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guX-xo-1q3">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guX-xo-1q3">
                                                 <rect key="frame" x="180.66666666666663" y="0.0" width="180.33333333333337" height="40.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="forgotPasswordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="pRY-eu-xOX"/>
+                                                    <action selector="forgotButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rE4-Mv-7ze"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -94,29 +94,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="113" translatesAutoresizingMaskIntoConstraints="NO" id="cpm-Rm-Fdj">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cpm-Rm-Fdj">
                                 <rect key="frame" x="16" y="218" width="361" height="416"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, User!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kql-wY-LJr">
-                                        <rect key="frame" x="79.666666666666686" y="0.0" width="202" height="36"/>
+                                        <rect key="frame" x="79.666666666666686" y="0.0" width="202" height="133.33333333333334"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAV-Mx-8vZ">
-                                        <rect key="frame" x="126.66666666666666" y="149" width="108" height="119.66666666666669"/>
+                                        <rect key="frame" x="126.66666666666666" y="141.33333333333331" width="108" height="133.33333333333331"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="koJ-YF-uPz">
-                                        <rect key="frame" x="138.33333333333334" y="381.66666666666663" width="84.666666666666657" height="34.333333333333314"/>
+                                        <rect key="frame" x="138.33333333333334" y="282.66666666666669" width="84.666666666666657" height="133.33333333333331"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Log Out">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="logOutButtonTapped" destination="pJb-IK-wW8" eventType="touchUpInside" id="3vh-lQ-8Gc"/>
                                             <segue destination="0bW-Dd-0L2" kind="unwind" unwindAction="unwindFor:" id="EDI-63-JEi"/>
                                         </connections>
                                     </button>
@@ -127,6 +126,7 @@
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
                             <constraint firstItem="cpm-Rm-Fdj" firstAttribute="centerX" secondItem="psN-vB-0vS" secondAttribute="centerX" id="1fq-1q-0F0"/>
+                            <constraint firstItem="cpm-Rm-Fdj" firstAttribute="height" secondItem="psN-vB-0vS" secondAttribute="height" multiplier="0.488263" id="CNb-sa-3dZ"/>
                             <constraint firstItem="cpm-Rm-Fdj" firstAttribute="leading" secondItem="JwU-cg-nyb" secondAttribute="leading" constant="16" id="SYr-hk-5Ud"/>
                             <constraint firstItem="JwU-cg-nyb" firstAttribute="trailing" secondItem="cpm-Rm-Fdj" secondAttribute="trailing" constant="16" id="Y8i-xD-fto"/>
                             <constraint firstItem="cpm-Rm-Fdj" firstAttribute="centerY" secondItem="psN-vB-0vS" secondAttribute="centerY" id="j4l-B3-xlA"/>

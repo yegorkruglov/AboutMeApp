@@ -12,11 +12,6 @@ final class LoginViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -36,6 +31,36 @@ final class LoginViewController: UIViewController {
         return true
     }
     
+    private func generateAlertController(_ sender: UIButton) {
+        var message: String {
+            switch sender.tag {
+            case 0:
+                return "Your username - user"
+            case 1:
+                return "Your password - password"
+            default:
+                return "Your username and/or password are incorrect"
+            }
+        }
+        
+        let alertController = UIAlertController(title: "Oops!",
+                                                message: message,
+                                                preferredStyle: .alert)
+        
+        var action: UIAlertAction {
+            switch sender.tag {
+            case 0, 1:
+                return UIAlertAction(title: "OK", style: .default)
+            default:
+                return UIAlertAction(title: "OK", style: .default) { _ in
+                    self.passwordTF.text = "" }
+            }
+        }
+        
+        alertController.addAction(action)
+        present(alertController, animated: true)
+    }
+    
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         guard segue.source is WelcomeViewController else { return }
         userNameTF.text = ""
@@ -44,39 +69,14 @@ final class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         if !shouldPerformSegue(withIdentifier: "loginToWelocmeScreen", sender: sender) {
-            let alertController = UIAlertController(title: "Ooops!",
-                                                    message: "Your username and/or password are incorrect",
-                                                    preferredStyle: .alert)
-            
-            let cancelAction = UIAlertAction(title: "OK",
-                                             style: .default) { _ in
-                self.userNameTF.text = ""
-                self.passwordTF.text = ""
-            }
-            alertController.addAction(cancelAction)
-            present(alertController, animated: true)
+            generateAlertController(sender)
         }
     }
     
-    @IBAction func forgotUserNameButtonTapped() {
-        let alertController = UIAlertController(title: "Oops!",
-                                                message: "Your username - user",
-                                                preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "OK", style: .default)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
+    @IBAction func forgotButtonTapped(_ sender: UIButton) {
+        generateAlertController(sender)
     }
     
-    @IBAction func forgotPasswordButtonTapped() {
-        let alertController = UIAlertController(title: "Oops!",
-                                                message: "Your password - password",
-                                                preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "OK", style: .default)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
-    }
     
     
 }

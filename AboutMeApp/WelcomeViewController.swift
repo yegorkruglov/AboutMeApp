@@ -9,15 +9,15 @@ import UIKit
 
 final class WelcomeViewController: UIViewController {
     
-    @IBOutlet var welcomeLabel: UILabel!
-    
     var userName: String!
+    
+    @IBOutlet var welcomeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupGradient()
-        welcomeLabel.text = "Welcome, \(userName ?? "User")"
+        welcomeLabel.text = "Welcome, \(userName ?? "🥷")"
     }
     
     private func setupGradient() {
@@ -30,9 +30,5 @@ final class WelcomeViewController: UIViewController {
         
         view.layer.insertSublayer(gradient, at: 0)
     }
-    
-    @IBAction func logOutButtonTapped() {
-    }
-    
 }
 
