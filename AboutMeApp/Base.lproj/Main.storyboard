@@ -36,6 +36,7 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Log In"/>
                                         <connections>
                                             <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sd5-sl-BjY"/>
+                                            <segue destination="pJb-IK-wW8" kind="presentation" identifier="loginToWelocmeScreen" modalPresentationStyle="fullScreen" id="rmN-9u-hcr"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="61O-Lg-ACJ">
