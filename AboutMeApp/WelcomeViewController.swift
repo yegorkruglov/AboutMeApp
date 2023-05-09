@@ -8,16 +8,21 @@
 import UIKit
 
 final class WelcomeViewController: UIViewController {
-
+    
+    @IBOutlet var welcomeLabel: UILabel!
+    
+    var userName: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupGradient()
+        welcomeLabel.text = "Welcome, \(userName ?? "User")"
     }
     
     private func setupGradient() {
         let gradient = CAGradientLayer()
-
+        
         gradient.frame = view.bounds
         gradient.colors = [UIColor.systemPink.cgColor, UIColor.systemCyan.cgColor]
         gradient.startPoint = CGPoint(x: 0, y: 0)
