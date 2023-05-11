@@ -36,7 +36,6 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Log In"/>
                                         <connections>
                                             <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sd5-sl-BjY"/>
-                                            <segue destination="pJb-IK-wW8" kind="presentation" identifier="loginToWelocmeScreen" modalPresentationStyle="fullScreen" id="rmN-9u-hcr"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="61O-Lg-ACJ">
@@ -70,7 +69,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="C0J-eX-Hut" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5rU-ZZ-0tW"/>
                             <constraint firstItem="C0J-eX-Hut" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BNh-oY-9E9"/>
                             <constraint firstItem="C0J-eX-Hut" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="IrI-hk-ZQx"/>
                             <constraint firstItem="C0J-eX-Hut" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="5:23" id="KBg-Z4-91b"/>
@@ -80,6 +78,7 @@
                     <connections>
                         <outlet property="passwordTF" destination="rs6-xJ-xWJ" id="MwO-mD-84S"/>
                         <outlet property="userNameTF" destination="FgJ-PJ-fDB" id="Cb3-Hl-7Kg"/>
+                        <segue destination="pJb-IK-wW8" kind="presentation" identifier="loginToWelocmeScreen" modalPresentationStyle="fullScreen" id="npB-fv-Wed"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -125,7 +124,6 @@
                         <viewLayoutGuide key="safeArea" id="JwU-cg-nyb"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
-                            <constraint firstItem="cpm-Rm-Fdj" firstAttribute="centerX" secondItem="psN-vB-0vS" secondAttribute="centerX" id="1fq-1q-0F0"/>
                             <constraint firstItem="cpm-Rm-Fdj" firstAttribute="height" secondItem="psN-vB-0vS" secondAttribute="height" multiplier="0.488263" id="CNb-sa-3dZ"/>
                             <constraint firstItem="cpm-Rm-Fdj" firstAttribute="leading" secondItem="JwU-cg-nyb" secondAttribute="leading" constant="16" id="SYr-hk-5Ud"/>
                             <constraint firstItem="JwU-cg-nyb" firstAttribute="trailing" secondItem="cpm-Rm-Fdj" secondAttribute="trailing" constant="16" id="Y8i-xD-fto"/>

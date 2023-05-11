@@ -12,7 +12,11 @@ final class LoginViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
+    private let validUserName = "user"
+    private let validPassword = "password"
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
     
@@ -21,23 +25,30 @@ final class LoginViewController: UIViewController {
         welcomeVC.userName = userNameTF.text
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard userNameTF.text == "user", passwordTF.text == "password" else {
-            // Введенное имя не валидно, отменяем переход и показываем алерт контроллер
-            return false
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        userNameTF.text = ""
+        passwordTF.text = ""
+    }
+    
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        if userNameTF.text == validUserName && passwordTF.text == validPassword {
+            performSegue(withIdentifier: "loginToWelocmeScreen", sender: sender)
+        } else {
+            generateAlertController(sender)
         }
-        
-        // Введенное имя валидно, разрешаем переход
-        return true
+    }
+    
+    @IBAction func forgotButtonTapped(_ sender: UIButton) {
+        generateAlertController(sender)
     }
     
     private func generateAlertController(_ sender: UIButton) {
         var message: String {
             switch sender.tag {
             case 0:
-                return "Your username - user"
+                return "Your username - \(validUserName)"
             case 1:
-                return "Your password - password"
+                return "Your password - \(validPassword)"
             default:
                 return "Your username and/or password are incorrect"
             }
@@ -60,24 +71,6 @@ final class LoginViewController: UIViewController {
         alertController.addAction(action)
         present(alertController, animated: true)
     }
-    
-    @IBAction func unwind(for segue: UIStoryboardSegue) {
-        guard segue.source is WelcomeViewController else { return }
-        userNameTF.text = ""
-        passwordTF.text = ""
-    }
-    
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
-        if !shouldPerformSegue(withIdentifier: "loginToWelocmeScreen", sender: sender) {
-            generateAlertController(sender)
-        }
-    }
-    
-    @IBAction func forgotButtonTapped(_ sender: UIButton) {
-        generateAlertController(sender)
-    }
-    
-    
     
 }
 

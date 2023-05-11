@@ -31,4 +31,3 @@ final class WelcomeViewController: UIViewController {
         view.layer.insertSublayer(gradient, at: 0)
     }
 }
-
