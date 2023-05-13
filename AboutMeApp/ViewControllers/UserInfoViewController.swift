@@ -7,23 +7,33 @@
 
 import UIKit
 
-class UserInfoViewController: UIViewController {
+final class UserInfoViewController: UIViewController {
+    
+    @IBOutlet var personImage: UIImageView!
+    @IBOutlet var personNameLabel: UILabel!
+    @IBOutlet var personSurnameLabel: UILabel!
+    @IBOutlet var personCompanyLabel: UILabel!
+    @IBOutlet var personOccupationLabel: UILabel!
+    
+    var person: Person!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupGradient()
+        
+        self.navigationController?.visibleViewController?.title = person.fullName
+
+        personImage.image = UIImage(named: person.imageName)
+        personNameLabel.text = person.name
+        personSurnameLabel.text = person.surname
+        personCompanyLabel.text = person.company
+        personOccupationLabel.text = person.occupation
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let userBioVC = segue.destination as? BioDetailsViewController else { return }
+        userBioVC.person = person
     }
-    */
 
 }

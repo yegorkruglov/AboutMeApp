@@ -9,11 +9,12 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
-    @IBOutlet var userNameTF: UITextField!
+    @IBOutlet var username: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    private let validUserName = "Tim"
-    private let validPassword = "123"
+    private let user = User(username: "tim",
+                            password: "123",
+                            person: User.getPerson())
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -21,17 +22,26 @@ final class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.userName = userNameTF.text
+        guard let tabBarController = segue.destination as? UITabBarController else { return }
+        guard let viewControllers = tabBarController.viewControllers else { return }
+        
+        for viewController in viewControllers {
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.personFullName = "\(user.person.fullName)"
+            } else if let navigationVC = viewController as? UINavigationController {
+                guard let userInfoVC = navigationVC.topViewController as? UserInfoViewController else { return }
+                userInfoVC.person = user.person
+            }
+        }
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        userNameTF.text = ""
+        username.text = ""
         passwordTF.text = ""
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        if userNameTF.text == validUserName && passwordTF.text == validPassword {
+        if username.text == user.username && passwordTF.text == user.password {
             performSegue(withIdentifier: "loginToWelocmeScreen", sender: sender)
         } else {
             generateAlertController(sender)
@@ -46,9 +56,9 @@ final class LoginViewController: UIViewController {
         var message: String {
             switch sender.tag {
             case 0:
-                return "Your username - \(validUserName)"
+                return "Your username - \(user.username)"
             case 1:
-                return "Your password - \(validPassword)"
+                return "Your password - \(user.password)"
             default:
                 return "Your username and/or password are incorrect"
             }

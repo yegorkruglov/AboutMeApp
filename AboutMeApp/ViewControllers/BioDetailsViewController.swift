@@ -7,23 +7,20 @@
 
 import UIKit
 
-class BioDetailsViewController: UIViewController {
+final class BioDetailsViewController: UIViewController {
 
+    @IBOutlet var bioLabel: UILabel!
+    
+    var person: Person!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupGradient()
+        
+        self.navigationController?.visibleViewController?.title = "\(person.fullName) Bio"
+        
+        bioLabel.text = person.bio
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
