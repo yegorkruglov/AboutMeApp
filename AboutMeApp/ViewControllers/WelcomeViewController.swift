@@ -19,15 +19,15 @@ final class WelcomeViewController: UIViewController {
         setupGradient()
         welcomeLabel.text = "Welcome, \(userName ?? "🥷")"
     }
-    
-    private func setupGradient() {
-        let gradient = CAGradientLayer()
-        
-        gradient.frame = view.bounds
-        gradient.colors = [UIColor.systemPink.cgColor, UIColor.systemCyan.cgColor]
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 1, y: 1)
-        
-        view.layer.insertSublayer(gradient, at: 0)
-    }
+//    
+//    private func setupGradient() {
+//        let gradient = CAGradientLayer()
+//        
+//        gradient.frame = view.bounds
+//        gradient.colors = [UIColor.systemPink.cgColor, UIColor.systemCyan.cgColor]
+//        gradient.startPoint = CGPoint(x: 0, y: 0)
+//        gradient.endPoint = CGPoint(x: 1, y: 1)
+//        
+//        view.layer.insertSublayer(gradient, at: 0)
+//    }
 }
