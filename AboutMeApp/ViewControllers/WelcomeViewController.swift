@@ -9,14 +9,14 @@ import UIKit
 
 final class WelcomeViewController: UIViewController {
     
-    var personFullName: String!
+    var person: Person!
     
     @IBOutlet var welcomeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupGradient()
-        welcomeLabel.text = "Welcome, \(personFullName ?? "🥷")"
+        view.setupGradient()
+        welcomeLabel.text = "Welcome, \(person.fullName)"
     }
 }

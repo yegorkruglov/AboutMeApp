@@ -20,15 +20,20 @@ final class UserInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupGradient()
+        view.setupGradient()
         
-        self.navigationController?.visibleViewController?.title = person.fullName
+        title = person.fullName
 
         personImage.image = UIImage(named: person.imageName)
         personNameLabel.text = person.name
         personSurnameLabel.text = person.surname
         personCompanyLabel.text = person.company
         personOccupationLabel.text = person.occupation
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        personImage.layer.cornerRadius = personImage.frame.height / 2
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

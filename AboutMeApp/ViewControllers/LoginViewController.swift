@@ -12,9 +12,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet var username: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    private let user = User(username: "tim",
-                            password: "123",
-                            person: User.getPerson())
+    private let user = User.getUser()
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -27,7 +25,7 @@ final class LoginViewController: UIViewController {
         
         for viewController in viewControllers {
             if let welcomeVC = viewController as? WelcomeViewController {
-                welcomeVC.personFullName = "\(user.person.fullName)"
+                welcomeVC.person = user.person
             } else if let navigationVC = viewController as? UINavigationController {
                 guard let userInfoVC = navigationVC.topViewController as? UserInfoViewController else { return }
                 userInfoVC.person = user.person
