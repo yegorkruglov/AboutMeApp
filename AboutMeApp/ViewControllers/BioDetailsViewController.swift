@@ -16,7 +16,7 @@ final class BioDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupGradient()
+        view.setupGradient()
         
         self.navigationController?.visibleViewController?.title = "\(person.fullName) Bio"
         
